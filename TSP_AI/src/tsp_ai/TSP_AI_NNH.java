@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.concurrent.ThreadLocalRandom;
 import java.util.Scanner;
 
-public class TSP_AI {
+public class TSP_AI_NNH {
     
     public static Place[] places;
     
@@ -255,8 +255,9 @@ public class TSP_AI {
         int[] my_start_ran = new int[n];
         Tour[] my_tour_ran = new Tour[n];
         for (int i = 0; i < n; i++) {
-            my_start_ran[i] = ThreadLocalRandom.current().nextInt(1, total + 1);
-            my_tour_ran[i] = ran_NNH(my_start_ran[i], total, "best", k);
+            //my_start_ran[i] = ThreadLocalRandom.current().nextInt(1, total + 1);
+            my_start_ran[i] = my_start[best_start_id];
+            my_tour_ran[i] = ran_NNH(my_start[best_start_id], total, "avg", k);
             my_cost_ran[i] = CalculateCost(my_tour_ran[i]);
         }
         for (int i = 1; i < n; i++) {
